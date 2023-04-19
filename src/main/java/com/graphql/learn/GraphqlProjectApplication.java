@@ -58,5 +58,6 @@ public class GraphqlProjectApplication implements CommandLineRunner {
         this.commentService.create(c);
 
 
+
     }
 }
