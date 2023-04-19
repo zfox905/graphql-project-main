@@ -1,0 +1,46 @@
+type Mutation{
+createBook(book:BookInput):Book
+    createComment(book:ID, comment:CommentInput):Comment
+
+}
+
+
+
+type Query{
+
+allBooks:[Book]
+getBook(bookId:Int):Book
+allComments:[Comment]
+
+}
+
+type Book{
+
+    id:ID!
+    title:String
+    desc:String
+    author:String
+    price:Float
+    pages:Int
+    comments:[Comment]
+
+
+}
+
+type Comment {
+    id:ID!
+    comment:String
+    book:Book
+}
+
+input BookInput{
+    title:String
+    desc:String
+    author:String
+    price:Float
+    pages:Int
+}
+
+input CommentInput {
+    comment:String
+}
