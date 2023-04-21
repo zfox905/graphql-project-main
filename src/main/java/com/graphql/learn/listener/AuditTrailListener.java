@@ -6,6 +6,8 @@ import org.apache.commons.logging.LogFactory;
 
 import javax.persistence.PrePersist;
 
+
+
 public class AuditTrailListener {
     private static Log log = LogFactory.getLog(AuditTrailListener.class);
 
