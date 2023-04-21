@@ -15,4 +15,6 @@ public interface BookService {
     //get single book
     Book get(int bookId);
 
+    Book getByName(String bookName);
+
 }
