@@ -33,4 +33,10 @@ public class BookServiceImpl implements BookService {
     public Book get(int bookId) {
         return this.bookRep.findById(bookId).orElseThrow(() -> new RuntimeException("Book you are looking for not found on server !!"));
     }
+
+    @Override
+    public Book getByName(String bookName) {
+        return this.bookRep.findBookByTitle(bookName);
+    }
+
 }

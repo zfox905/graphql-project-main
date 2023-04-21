@@ -6,24 +6,36 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name = "project_comments")
+@Table(name = "checkout")
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Comment {
 
+public class Checkout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String comment;
+
+    private Date startTime;
+
+    private Date endTime;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "book_id", nullable = true)
+    @JoinColumn(name = "book_copy_id", nullable = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Book book;
+    private BookCopy bookCopy;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "patron_account_id", nullable = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private PatronAccount patronAccount;
+
+    private Boolean isReturned;
 }
